@@ -10,9 +10,13 @@ import {
 } from "@chakra-ui/react";
 import { FaTrashAlt } from "react-icons/fa";
 
-function TodoList({ todos,deleteTodo }) {
-  if(todos.length===0){
-    return <Badge colorScheme="green" p='4' borderRadius='lg' m='4'>No any Todos</Badge>;
+function TodoList({ todos, deleteTodo }) {
+  if (todos.length === 0) {
+    return (
+      <Badge colorScheme="green" p="4" borderRadius="lg" m="4">
+        No any Todos
+      </Badge>
+    );
   }
 
   return (
@@ -30,7 +34,10 @@ function TodoList({ todos,deleteTodo }) {
         <HStack key={todoarrow.id}>
           <Text>{todoarrow.title}</Text>
           <Spacer />
-          <IconButton onClick={()=>deleteTodo(todoarrow.id)} icon={<FaTrashAlt />} />
+          <IconButton
+            onClick={() => deleteTodo(todoarrow.id)}
+            icon={<FaTrashAlt />}
+          />
         </HStack>
       ))}
     </VStack>
