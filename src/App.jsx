@@ -27,7 +27,7 @@ function App() {
     });
     settodos(newTodos);
     addtoast({
-      title: `Delet Todo`,
+      title: `Delete Todo`,
       status: "info",
       duration: 1500,
       isClosable: true,

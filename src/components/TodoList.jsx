@@ -18,7 +18,6 @@ function TodoList({ todos, deleteTodo }) {
       </Badge>
     );
   }
-
   return (
     <VStack
       divider={<StackDivider />}
@@ -27,13 +26,22 @@ function TodoList({ todos, deleteTodo }) {
       p={4}
       borderRadius="10px"
       w="100%"
+      
       maxW={{ base: "90vw", sm: "80vw", lg: "50vw", xl: "40vw" }}
       alignItems="stretch"
     >
       {todos.map((todoarrow) => (
         <HStack key={todoarrow.id}>
-          <Text>{todoarrow.title}</Text>
+          <Text fontSize="2xl">{todoarrow.title}</Text>
           <Spacer />
+          <Badge
+            fontSize="13px"
+            colorScheme='green'
+            alignItems="end"
+            borderRadius="5px"
+          >
+            {todoarrow.tag === "" ? "" : "#" + todoarrow.tag}
+          </Badge>
           <IconButton
             onClick={() => deleteTodo(todoarrow.id)}
             icon={<FaTrashAlt />}

@@ -1,5 +1,19 @@
 import { React, useState } from "react";
-import { HStack, Input, Button, useToast, Box } from "@chakra-ui/react";
+import {
+  HStack,
+  Input,
+  Button,
+  useToast,
+  Box,
+  InputGroup,
+  InputLeftAddon,
+  Spacer,
+  Select,
+  Wrap,
+  WrapItem,
+  Text,
+  Flex,
+} from "@chakra-ui/react";
 import { nanoid } from "nanoid";
 function AddTodo({ addTodo }) {
   const toast = useToast();
@@ -25,25 +39,46 @@ function AddTodo({ addTodo }) {
     const todo = {
       id: nanoid(),
       title: content,
+      tag: tag,
+      tagcolor: colortag,
     };
     addTodo(todo);
     setcontent("");
   }
   const [content, setcontent] = useState();
+  const [tag, settag] = useState();
+  const [colortag, setcolortag] = useState();
+
   return (
     <form onSubmit={handleSubmit}>
-      <HStack mt="6" mb="100px">
+      <InputGroup mt="20px">
         <Input
+          borderRadius="10px"
+          mr="10px"
           variant="filled"
           placeholder="type some todo"
           value={content}
           onChange={(x) => setcontent(x.target.value)}
         />
-        <Button colorScheme="green" px="8" type="sunmit">
+        <Spacer />
+        <Select
+          w="200px"
+          borderRadius="10px"
+          placeholder="Select Tag"
+          onChange={(x) => settag(x.target.value)}
+        >
+          <option value="Family">Family</option>
+          <option value="School">School</option>
+          <option value="Work">Work</option>
+          <option value="Urgent">Urgent</option>
+          <option value="Leisure">Leisure</option>
+        </Select>
+      </InputGroup>
+      <center>
+        <Button colorScheme="green" mt="10px" px="8" type="sunmit">
           Add Todo
         </Button>
-        {/* <br /><Box h='200px'></Box> */}
-      </HStack>
+      </center>
     </form>
   );
 }
