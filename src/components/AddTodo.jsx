@@ -13,6 +13,11 @@ import {
   WrapItem,
   Text,
   Flex,
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+  AccordionIcon,
 } from "@chakra-ui/react";
 import { nanoid } from "nanoid";
 
@@ -75,14 +80,11 @@ function AddTodo({ addTodo }) {
           <option value="Leisure">Leisure</option>
         </Select>
       </InputGroup>
-      <Spacer/>
+      <Spacer />
+
+      <Spacer />
       <center>
-        <Button
-          colorScheme="green"
-          mt="10px"
-          px="8"
-          type="sunmit"
-        >
+        <Button colorScheme="green" mt="10px" px="8" type="sunmit">
           Add Todo
         </Button>
       </center>
