@@ -18,6 +18,21 @@ function TodoList({ todos, deleteTodo }) {
       </Badge>
     );
   }
+  function gettagcolor(x) {
+    if (x === "Family") {
+      return "green";
+    } else if (x === "Work") {
+      return "blue";
+    } else if (x === "School") {
+      return "yellow";
+    } else if (x === "Urgent") {
+      return "red";
+    } else if (x === "Leisure") {
+      return "purple";
+    }else {
+      return "";
+    }
+  }
   return (
     <VStack
       divider={<StackDivider />}
@@ -26,7 +41,6 @@ function TodoList({ todos, deleteTodo }) {
       p={4}
       borderRadius="10px"
       w="100%"
-      
       maxW={{ base: "90vw", sm: "80vw", lg: "50vw", xl: "40vw" }}
       alignItems="stretch"
     >
@@ -36,14 +50,14 @@ function TodoList({ todos, deleteTodo }) {
           <Spacer />
           <Badge
             fontSize="13px"
-            colorScheme='green'
+            colorScheme={gettagcolor(todoarrow.tag)}
             alignItems="end"
             borderRadius="5px"
           >
-            {todoarrow.tag === "" ? "" : "#" + todoarrow.tag}
+            {todoarrow.tag === "none" ? "" : "#" + todoarrow.tag}
           </Badge>
           <IconButton
-            onClick={() => deleteTodo(todoarrow.id)}
+            onClick={() => deleteTodo(todoarrow.id,todoarrow.title)}
             icon={<FaTrashAlt />}
           />
         </HStack>

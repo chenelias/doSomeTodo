@@ -21,26 +21,28 @@ function App() {
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
   });
-  function deleteTodo(id) {
+  function deleteTodo(id, title) {
     const newTodos = todos.filter((todo) => {
       return todo.id !== id;
     });
     settodos(newTodos);
-    addtoast({
-      title: `Delete Todo`,
-      status: "info",
-      duration: 1500,
-      isClosable: true,
-    });
+        addtoast({
+          title: `Delete Todo "${title}"`,
+          status: "info",
+          duration: 1500,
+          isClosable: true,
+        });
   }
   function addTodo(todo) {
     settodos([...todos, todo]);
   }
-  const { colorMode, toggleColorMode } = useColorMode()
+  const { colorMode, toggleColorMode } = useColorMode();
   return (
     <VStack p={4}>
       <IconButton
-        icon={colorMode==='light' ? <BsFillSunFill/>:<BsFillMoonStarsFill/>}
+        icon={
+          colorMode === "light" ? <BsFillSunFill /> : <BsFillMoonStarsFill />
+        }
         size="lg"
         alignSelf="flex-end"
         onClick={toggleColorMode}

@@ -15,6 +15,7 @@ import {
   Flex,
 } from "@chakra-ui/react";
 import { nanoid } from "nanoid";
+
 function AddTodo({ addTodo }) {
   const toast = useToast();
   function handleSubmit(x) {
@@ -40,15 +41,14 @@ function AddTodo({ addTodo }) {
       id: nanoid(),
       title: content,
       tag: tag,
-      tagcolor: colortag,
+      tagcolor: tagcolor,
     };
     addTodo(todo);
     setcontent("");
   }
   const [content, setcontent] = useState();
   const [tag, settag] = useState();
-  const [colortag, setcolortag] = useState();
-
+  const [tagcolor, settagcolor] = useState();
   return (
     <form onSubmit={handleSubmit}>
       <InputGroup mt="20px">
@@ -64,9 +64,10 @@ function AddTodo({ addTodo }) {
         <Select
           w="200px"
           borderRadius="10px"
-          placeholder="Select Tag"
           onChange={(x) => settag(x.target.value)}
+          className="tagoption"
         >
+          <option value="none">none</option>
           <option value="Family">Family</option>
           <option value="School">School</option>
           <option value="Work">Work</option>
@@ -74,8 +75,14 @@ function AddTodo({ addTodo }) {
           <option value="Leisure">Leisure</option>
         </Select>
       </InputGroup>
+      <Spacer/>
       <center>
-        <Button colorScheme="green" mt="10px" px="8" type="sunmit">
+        <Button
+          colorScheme="green"
+          mt="10px"
+          px="8"
+          type="sunmit"
+        >
           Add Todo
         </Button>
       </center>
