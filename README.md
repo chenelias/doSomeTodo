@@ -1,6 +1,6 @@
 # doSomeTodo
 ### About
-doSomeTodo is the simplify webApplication like GoogleTasks or Microsoft To Do.
+doSomeTodo is the simplify clean webApplication like GoogleTasks or Microsoft To Do.
 ### Function
 - Allow user to add tasks and Tag
 - Save user tasks with Cookie
