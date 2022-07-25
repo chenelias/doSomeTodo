@@ -71,6 +71,7 @@ function AddTodo({ addTodo }) {
           borderRadius="10px"
           onChange={(x) => settag(x.target.value)}
           className="tagoption"
+          placeholder='Select Tag'
         >
           <option value="none">none</option>
           <option value="Family">Family</option>

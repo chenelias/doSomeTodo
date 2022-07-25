@@ -7,6 +7,8 @@ import {
   StackDivider,
   Spacer,
   Badge,
+  Checkbox,
+  CheckboxGroup,
 } from "@chakra-ui/react";
 import { FaTrashAlt } from "react-icons/fa";
 
@@ -17,6 +19,15 @@ function TodoList({ todos, deleteTodo }) {
         No any Todos
       </Badge>
     );
+  }
+  function scanoption(x){
+    if(x===''){
+      return '';
+    }else if(x==='none'){
+      return '';
+    }else{
+      return '#'+x;
+    }
   }
   function gettagcolor(x) {
     if (x === "Family") {
@@ -29,8 +40,8 @@ function TodoList({ todos, deleteTodo }) {
       return "red";
     } else if (x === "Leisure") {
       return "purple";
-    }else {
-      return "";
+    } else{
+
     }
   }
   return (
@@ -46,6 +57,7 @@ function TodoList({ todos, deleteTodo }) {
     >
       {todos.map((todoarrow) => (
         <HStack key={todoarrow.id}>
+          <Checkbox size='lg'></Checkbox>
           <Text fontSize="2xl">{todoarrow.title}</Text>
           <Spacer />
           <Badge
@@ -54,10 +66,10 @@ function TodoList({ todos, deleteTodo }) {
             alignItems="end"
             borderRadius="5px"
           >
-            {todoarrow.tag === "none" ? "" : "#" + todoarrow.tag}
+            {scanoption(todoarrow.tag)}
           </Badge>
           <IconButton
-            onClick={() => deleteTodo(todoarrow.id,todoarrow.title)}
+            onClick={() => deleteTodo(todoarrow.id, todoarrow.title)}
             icon={<FaTrashAlt />}
           />
         </HStack>
