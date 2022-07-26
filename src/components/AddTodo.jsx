@@ -22,6 +22,7 @@ import {
 import { nanoid } from "nanoid";
 
 function AddTodo({ addTodo }) {
+  
   const toast = useToast();
   function handleSubmit(x) {
     x.preventDefault();
