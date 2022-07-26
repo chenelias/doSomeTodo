@@ -41,7 +41,7 @@ function TodoList({ todos, deleteTodo }) {
     } else if (x === "Leisure") {
       return "purple";
     } else{
-
+      return 'red'
     }
   }
   return (
