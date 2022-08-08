@@ -12,5 +12,5 @@ doSomeTodo is the simplify clean webApplication like GoogleTasks or Microsoft To
 ### link
 https://dosometodo.vercel.app
 
-### NoCopyRight
+### MIT License
 Deployed by ▲ Vercel
